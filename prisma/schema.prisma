@@ -14,10 +14,10 @@ datasource db {
 }
 
 model Car {
-  id Int @id @default(autoincrement())
-  name String
+  id          String  @id @default(uuid())
+  name        String
   description String?
-  brand String
-  year Int
-  km Int
+  brand       String
+  year        Int
+  km          Int
 }

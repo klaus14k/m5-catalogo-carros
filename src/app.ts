@@ -1,7 +1,7 @@
 import express, { Application, json } from "express"
 import helmet from "helmet"
-import { carRouter } from "./routers/car.router"
 import { handleErrors } from "./middlewares/handleErrors.middleware"
+import { carRouter } from "./routers/car.router"
 
 export const app: Application = express()
 

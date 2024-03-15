@@ -9,9 +9,10 @@ class EnsureMiddleware {
         return next()
     }
     public carIdExists = async (req: Request, _: Response, next: NextFunction): Promise<void> => {
-        const carId = await prisma.car.findFirst({where: {id: req.params.id}})
+        const carId = await prisma.car.findFirst({ where: { id: req.params.id } })
         if (!carId) {
-            throw new AppError("Car not found.", 404)
+            const error = new AppError("Car not found.", 404)
+            return next(error)
         }
         return next()
     }

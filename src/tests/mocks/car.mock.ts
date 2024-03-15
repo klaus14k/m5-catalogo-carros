@@ -8,24 +8,20 @@ export const car = {
 
 export const invalidCar = {
     name: 1,
-    description: null,
-    brand: false,
+    brand: 2,
     year: "2012",
     km: "14000"
 }
 
-export const updateCar = {
-    name: "updated",
+export const updatedCar = {
     description: "Surely is among the most iconic super cars ever created.",
-    brand: "updated",
-    year: 2014,
-    km: 14800
+    year: 2010,
 }
 
-export const invalidUpdateCar = {
-    name: "updated",
-    description: 10,
-    brand: "updated",
-    year: 2014,
+export const invalidUpdatedCar = {
+    name: 1234,
+    description: 5678,
+    brand: 999,
+    year: "2014",
     km: "14800"
 }

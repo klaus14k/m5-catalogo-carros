@@ -1,8 +1,8 @@
 import { Car } from "@prisma/client"
-import { car } from "../../mocks"
+import { car } from "../../mocks/car.mock"
 import { baseUrl, carTb, request } from "../../utils"
 
-describe("Integration Tests: Read Cars route.", () => {
+describe("Integration Tests: Read Cars Route", () => {
     let createdCar: Car
 
     beforeAll(async () => {

@@ -1,8 +1,7 @@
-import { car } from "../../mocks"
+import { car, invalidCar } from "../../mocks/car.mock"
 import { baseUrl, carTb, request } from "../../utils"
 
-describe("Integration tests: Create Car route.", () => {
-
+describe("Integration tests: Create Car Route", () => {
     beforeEach(async () => await carTb.deleteMany())
 
     test("Should be able to create a car successfully", async () => {
@@ -22,45 +21,45 @@ describe("Integration tests: Create Car route.", () => {
     })
 
     test("Should throw error when trying to create a car with invalid data types", async () => {
-        const response = await request.post(baseUrl).send({})
+        const response = await request.post(baseUrl).send(invalidCar)
 
         const expectedValue = {
             "message": [
                 {
                     "code": "invalid_type",
                     "expected": "string",
-                    "message": "Required",
+                    "message": `Expected string, received ${typeof invalidCar.name}`,
                     "path": [
                         "name",
                     ],
-                    "received": "undefined",
+                    "received": typeof invalidCar.name,
                 },
                 {
                     "code": "invalid_type",
                     "expected": "string",
-                    "message": "Required",
+                    "message": `Expected string, received ${typeof invalidCar.brand}`,
                     "path": [
                         "brand",
                     ],
-                    "received": "undefined",
+                    "received": typeof invalidCar.brand,
                 },
                 {
                     "code": "invalid_type",
                     "expected": "number",
-                    "message": "Required",
+                    "message": `Expected number, received ${typeof invalidCar.year}`,
                     "path": [
                         "year",
                     ],
-                    "received": "undefined",
+                    "received": typeof invalidCar.year,
                 },
                 {
                     "code": "invalid_type",
                     "expected": "number",
-                    "message": "Required",
+                    "message": `Expected number, received ${typeof invalidCar.km}`,
                     "path": [
                         "km",
                     ],
-                    "received": "undefined",
+                    "received": typeof invalidCar.km,
                 },
             ],
         }
